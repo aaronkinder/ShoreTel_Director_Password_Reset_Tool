@@ -55,6 +55,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.resetPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prgProgress = new System.Windows.Forms.ProgressBar();
+            this.bgWorkerInfoGather = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,7 +109,7 @@
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(392, 24);
             this.menuStrip2.TabIndex = 2;
-            this.menuStrip2.Text = "menuStrip2";
+            this.menuStrip2.Text = "msMainMenu";
             // 
             // optionsToolStripMenuItem
             // 
@@ -297,6 +298,14 @@
             this.prgProgress.Size = new System.Drawing.Size(368, 23);
             this.prgProgress.TabIndex = 5;
             // 
+            // bgWorkerInfoGather
+            // 
+            this.bgWorkerInfoGather.WorkerReportsProgress = true;
+            this.bgWorkerInfoGather.WorkerSupportsCancellation = true;
+            this.bgWorkerInfoGather.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerInfoGather_DoWork);
+            this.bgWorkerInfoGather.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerInfoGather_ProgressChanged);
+            this.bgWorkerInfoGather.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerInfoGather_RunWorkerCompleted);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +324,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShoreTel Director Password Reset Tool";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
@@ -356,6 +366,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem resetPasswordToolStripMenuItem;
         private System.Windows.Forms.ProgressBar prgProgress;
+        private System.ComponentModel.BackgroundWorker bgWorkerInfoGather;
     }
 }
 
