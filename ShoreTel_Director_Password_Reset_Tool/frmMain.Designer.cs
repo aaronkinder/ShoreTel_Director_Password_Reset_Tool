@@ -57,6 +57,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.prgProgress = new System.Windows.Forms.ProgressBar();
             this.bgWorkerInfoGather = new System.ComponentModel.BackgroundWorker();
+            this.bgLicenseCheck = new System.ComponentModel.BackgroundWorker();
             this.grpServerInformation.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.grpBackupStatus.SuspendLayout();
@@ -190,6 +191,7 @@
             this.resetPasswordToolStripMenuItem,
             this.restoreDatabaseToolStripMenuItem,
             this.backupDatabaseToolStripMenuItem});
+            this.optionsToolStripMenuItem.Enabled = false;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -321,6 +323,13 @@
             this.bgWorkerInfoGather.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerInfoGather_ProgressChanged);
             this.bgWorkerInfoGather.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerInfoGather_RunWorkerCompleted);
             // 
+            // bgLicenseCheck
+            // 
+            this.bgLicenseCheck.WorkerReportsProgress = true;
+            this.bgLicenseCheck.WorkerSupportsCancellation = true;
+            this.bgLicenseCheck.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgLicenseCheck_DoWork);
+            this.bgLicenseCheck.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgLicenseCheck_RunWorkerCompleted);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,6 +391,7 @@
         private System.ComponentModel.BackgroundWorker bgWorkerInfoGather;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label7;
+        private System.ComponentModel.BackgroundWorker bgLicenseCheck;
     }
 }
 

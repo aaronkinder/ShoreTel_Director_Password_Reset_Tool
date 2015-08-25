@@ -38,6 +38,7 @@ namespace ShoreTel_Director_Password_Reset_Tool
             {
                 License.SaveKeyFile();
                 MessageBox.Show("Activated");
+                Application.Exit();
             }
             else
             {

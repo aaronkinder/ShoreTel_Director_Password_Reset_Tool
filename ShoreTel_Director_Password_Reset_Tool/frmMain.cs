@@ -17,12 +17,14 @@ namespace ShoreTel_Director_Password_Reset_Tool
     public partial class frmMain : Form
     {
         private DBConnect dbConnect;
+        private License License;
 
         public frmMain()
         {
             InitializeComponent();
 
             dbConnect = new DBConnect();
+            License = new License();
         }
 
         private string GetServer_FQDN()
@@ -106,6 +108,8 @@ namespace ShoreTel_Director_Password_Reset_Tool
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            bgLicenseCheck.RunWorkerAsync();
+            
             bgWorkerInfoGather.RunWorkerAsync();
             string dirPath = @"c:\";
             if (Directory.GetFiles(dirPath, "*.sql").Length == 0)
@@ -141,6 +145,61 @@ namespace ShoreTel_Director_Password_Reset_Tool
         {
             var frmAbout = new frmAbout();
             frmAbout.ShowDialog();
+        }
+
+        private void bgLicenseCheck_DoWork(object sender, DoWorkEventArgs e)
+        {
+            bool isLicensed = false;
+            var LicArray = new string[4];
+            string HardKey = License.Value();
+            string MD5Hash = License.GetMd5Sum(HardKey);
+            LicArray[0] = HardKey;
+            LicArray[1] = MD5Hash;
+            try
+            {
+                string KeyFile = File.ReadAllText("KeyFile").Trim();
+
+                if (KeyFile.Trim() == MD5Hash)
+                {
+                    isLicensed = true;
+                }
+                else
+                {
+                    isLicensed = false;
+                }
+
+                LicArray[2] = isLicensed.ToString();
+                LicArray[3] = KeyFile;
+
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = LicArray;
+        }
+
+        private void bgLicenseCheck_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            string[] LicArray = (e.Result as string[]);
+            int i = 0;
+            foreach (var item in LicArray)
+            {
+                LicArray[i] = item;
+                i++;
+            }
+
+            
+
+
+            if (LicArray[1] == LicArray[3])
+            {
+                optionsToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Please use the Help > About menu to activate before use.");
+            }
         }
     }
 }
