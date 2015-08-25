@@ -59,5 +59,45 @@ namespace ShoreTel_Director_Password_Reset_Tool.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Allcomm_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Allcomm_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap partner_shoretel {
+            get {
+                object obj = ResourceManager.GetObject("partner_shoretel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sa100 {
+            get {
+                object obj = ResourceManager.GetObject("sa100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shoretel_IP_phone_system_resized_600 {
+            get {
+                object obj = ResourceManager.GetObject("shoretel-IP-phone-system-resized-600", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

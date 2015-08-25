@@ -47,17 +47,16 @@
             this.backupDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reviewSourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpBackupStatus = new System.Windows.Forms.GroupBox();
             this.txtBackupLocation = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.prgProgress = new System.Windows.Forms.ProgressBar();
             this.bgWorkerInfoGather = new System.ComponentModel.BackgroundWorker();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.grpServerInformation.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.grpBackupStatus.SuspendLayout();
@@ -219,8 +218,7 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.reviewSourceCodeToolStripMenuItem});
+            this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -228,14 +226,9 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // reviewSourceCodeToolStripMenuItem
-            // 
-            this.reviewSourceCodeToolStripMenuItem.Name = "reviewSourceCodeToolStripMenuItem";
-            this.reviewSourceCodeToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.reviewSourceCodeToolStripMenuItem.Text = "Review Source Code";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // grpBackupStatus
             // 
@@ -279,6 +272,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ShoreTel Admin Password Reset";
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(122, 19);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(232, 20);
+            this.txtUsername.TabIndex = 3;
+            this.txtUsername.Text = "admin";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Current Username:";
+            // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(122, 59);
@@ -311,23 +321,6 @@
             this.bgWorkerInfoGather.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerInfoGather_ProgressChanged);
             this.bgWorkerInfoGather.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerInfoGather_RunWorkerCompleted);
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(122, 19);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(232, 20);
-            this.txtUsername.TabIndex = 3;
-            this.txtUsername.Text = "admin";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Current Username:";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +338,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShoreTel Director Password Reset Tool";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpServerInformation.ResumeLayout(false);
             this.grpServerInformation.PerformLayout();
@@ -371,7 +363,6 @@
         private System.Windows.Forms.ToolStripMenuItem backupDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reviewSourceCodeToolStripMenuItem;
         private System.Windows.Forms.TextBox txtExternalIP;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtInternalIP;

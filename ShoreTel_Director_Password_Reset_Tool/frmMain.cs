@@ -136,5 +136,11 @@ namespace ShoreTel_Director_Password_Reset_Tool
         {
            
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmAbout = new frmAbout();
+            frmAbout.ShowDialog();
+        }
     }
 }
